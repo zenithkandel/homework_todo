@@ -207,6 +207,7 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(45deg, transparent 49%, rgba(40, 167, 69, 0.1) 50%, transparent 51%);
+    pointer-events: none;
 }
 
 .task-header {
