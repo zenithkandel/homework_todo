@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Todo Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <i class="fas fa-graduation-cap header-icon"></i>
+                    <h1>Homework Manager</h1>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalPages">0</span>
+                        <span class="stat-label">Total Pages</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="controls">
+                <button class="btn btn-primary" id="addTaskBtn">
+                    <i class="fas fa-plus"></i>
+                    Add New Task
+                </button>
+                <div class="filters">
+                    <select id="filterTeacher" class="filter-select">
+                        <option value="">All Teachers</option>
+                    </select>
+                    <select id="filterPriority" class="filter-select">
+                        <option value="">All Priorities</option>
+                        <option value="1">Priority 1</option>
+                        <option value="2">Priority 2</option>
+                        <option value="3">Priority 3</option>
+                        <option value="4">Priority 4</option>
+                        <option value="5">Priority 5</option>
+                        <option value="6">Priority 6</option>
+                        <option value="7">Priority 7</option>
+                        <option value="8">Priority 8</option>
+                        <option value="9">Priority 9</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tasks-container" id="tasksContainer">
+                <!-- Tasks will be dynamically generated here -->
+            </div>
+        </div>
+
+        <!-- Add Task Modal -->
+        <div class="modal" id="addTaskModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add New Task</h2>
+                    <button class="close-btn" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="teacher">Teacher</label>
+                        <input type="text" id="teacher" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task">Task Description</label>
+                        <textarea id="task" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pages">Pages</label>
+                            <input type="number" id="pages" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select id="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="1">1 (Highest)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9 (Lowest)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="datetime-local" id="deadline" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Task Modal -->
+        <div class="modal" id="editTaskModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Edit Task</h2>
+                    <button class="close-btn" id="closeEditModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="editTaskForm">
+                    <div class="form-group">
+                        <label for="editTeacher">Teacher</label>
+                        <input type="text" id="editTeacher" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editTask">Task Description</label>
+                        <textarea id="editTask" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editPages">Pages</label>
+                            <input type="number" id="editPages" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPriority">Priority</label>
+                            <select id="editPriority" required>
+                                <option value="">Select Priority</option>
+                                <option value="1">1 (Highest)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9 (Lowest)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDeadline">Deadline</label>
+                        <input type="datetime-local" id="editDeadline" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
