@@ -25,14 +25,18 @@
         --accent-light: #e8d5c4;
         --border: #e5e2dc;
         --radius: 12px;
-        --shadow: 0 1px 3px rgba(0,0,0,0.04);
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       }
 
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
       }
 
       body {
@@ -125,7 +129,7 @@
       }
 
       .hero-label::before {
-        content: '';
+        content: "";
         width: 20px;
         height: 2px;
         background: var(--accent);
@@ -201,13 +205,22 @@
       }
 
       @media (max-width: 900px) {
-        .grid { grid-template-columns: repeat(2, 1fr); }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
 
       @media (max-width: 600px) {
-        .grid { grid-template-columns: 1fr; }
-        .hero h1 { font-size: 32px; }
-        .stats-bar { flex-wrap: wrap; gap: 20px; }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .stats-bar {
+          flex-wrap: wrap;
+          gap: 20px;
+        }
       }
 
       .card {
@@ -220,7 +233,7 @@
       }
 
       .card:hover {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       }
 
       .card-header {
@@ -242,16 +255,46 @@
         font-size: 14px;
       }
 
-      .card-icon.browser { background: #e3f2fd; color: #1976d2; }
-      .card-icon.device { background: #fce4ec; color: #c2185b; }
-      .card-icon.screen { background: #e8f5e9; color: #388e3c; }
-      .card-icon.system { background: #fff3e0; color: #f57c00; }
-      .card-icon.network { background: #f3e5f5; color: #7b1fa2; }
-      .card-icon.gpu { background: #e0f7fa; color: #00838f; }
-      .card-icon.battery { background: #fff8e1; color: #ffa000; }
-      .card-icon.storage { background: #efebe9; color: #5d4037; }
-      .card-icon.location { background: #fbe9e7; color: #d84315; }
-      .card-icon.fingerprint { background: #e8eaf6; color: #3949ab; }
+      .card-icon.browser {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+      .card-icon.device {
+        background: #fce4ec;
+        color: #c2185b;
+      }
+      .card-icon.screen {
+        background: #e8f5e9;
+        color: #388e3c;
+      }
+      .card-icon.system {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      .card-icon.network {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+      .card-icon.gpu {
+        background: #e0f7fa;
+        color: #00838f;
+      }
+      .card-icon.battery {
+        background: #fff8e1;
+        color: #ffa000;
+      }
+      .card-icon.storage {
+        background: #efebe9;
+        color: #5d4037;
+      }
+      .card-icon.location {
+        background: #fbe9e7;
+        color: #d84315;
+      }
+      .card-icon.fingerprint {
+        background: #e8eaf6;
+        color: #3949ab;
+      }
 
       .card h3 {
         font-size: 14px;
@@ -313,21 +356,37 @@
         font-weight: 500;
       }
 
-      .badge.success { background: #e8f5e9; color: #2e7d32; }
-      .badge.warning { background: #fff3e0; color: #ef6c00; }
-      .badge.error { background: #ffebee; color: #c62828; }
-      .badge.info { background: #e3f2fd; color: #1565c0; }
+      .badge.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+      }
+      .badge.warning {
+        background: #fff3e0;
+        color: #ef6c00;
+      }
+      .badge.error {
+        background: #ffebee;
+        color: #c62828;
+      }
+      .badge.info {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
 
       .big {
         grid-column: span 3;
       }
 
       @media (max-width: 900px) {
-        .big { grid-column: span 2; }
+        .big {
+          grid-column: span 2;
+        }
       }
 
       @media (max-width: 600px) {
-        .big { grid-column: span 1; }
+        .big {
+          grid-column: span 1;
+        }
       }
 
       pre {
@@ -336,7 +395,7 @@
         border-radius: 8px;
         overflow: auto;
         font-size: 12px;
-        font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+        font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
         line-height: 1.6;
         color: var(--text);
         border: 1px solid var(--border);
@@ -375,8 +434,13 @@
       }
 
       @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
       }
 
       /* Progress bars for visual data */
@@ -422,8 +486,11 @@
     <!-- Hero -->
     <div class="hero">
       <div class="hero-label">Browser Intelligence</div>
-      <h1>All your <span>data</span>,<br>one inspector.</h1>
-      <p>View everything your browser reveals about you without any permissions required.</p>
+      <h1>All your <span>data</span>,<br />one inspector.</h1>
+      <p>
+        View everything your browser reveals about you without any permissions
+        required.
+      </p>
     </div>
 
     <!-- Stats Bar -->
@@ -468,11 +535,15 @@
             <h3>Browser</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-info-circle"></i>Browser</span>
+            <span class="item-label"
+              ><i class="fas fa-info-circle"></i>Browser</span
+            >
             <span class="item-value" id="browser-name">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-code-branch"></i>Version</span>
+            <span class="item-label"
+              ><i class="fas fa-code-branch"></i>Version</span
+            >
             <span class="item-value" id="browser-version">-</span>
           </div>
           <div class="item">
@@ -480,7 +551,9 @@
             <span class="item-value" id="browser-engine">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-language"></i>Language</span>
+            <span class="item-label"
+              ><i class="fas fa-language"></i>Language</span
+            >
             <span class="item-value" id="lang">-</span>
           </div>
           <div class="item">
@@ -488,7 +561,9 @@
             <span class="item-value" id="cookies">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-eye-slash"></i>Do Not Track</span>
+            <span class="item-label"
+              ><i class="fas fa-eye-slash"></i>Do Not Track</span
+            >
             <span class="item-value" id="dnt">-</span>
           </div>
         </div>
@@ -500,11 +575,15 @@
             <h3>Device</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fab fa-windows"></i>Platform</span>
+            <span class="item-label"
+              ><i class="fab fa-windows"></i>Platform</span
+            >
             <span class="item-value" id="platform">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-microchip"></i>CPU Threads</span>
+            <span class="item-label"
+              ><i class="fas fa-microchip"></i>CPU Threads</span
+            >
             <span class="item-value" id="cores">-</span>
           </div>
           <div class="item">
@@ -512,11 +591,15 @@
             <span class="item-value" id="memory">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-hand-pointer"></i>Touch</span>
+            <span class="item-label"
+              ><i class="fas fa-hand-pointer"></i>Touch</span
+            >
             <span class="item-value" id="touch">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-mobile-alt"></i>Device Type</span>
+            <span class="item-label"
+              ><i class="fas fa-mobile-alt"></i>Device Type</span
+            >
             <span class="item-value" id="device-type">-</span>
           </div>
         </div>
@@ -528,23 +611,33 @@
             <h3>Display</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-expand"></i>Resolution</span>
+            <span class="item-label"
+              ><i class="fas fa-expand"></i>Resolution</span
+            >
             <span class="item-value" id="res">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-compress"></i>Viewport</span>
+            <span class="item-label"
+              ><i class="fas fa-compress"></i>Viewport</span
+            >
             <span class="item-value" id="viewport">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-palette"></i>Color Depth</span>
+            <span class="item-label"
+              ><i class="fas fa-palette"></i>Color Depth</span
+            >
             <span class="item-value" id="depth">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-search-plus"></i>Pixel Ratio</span>
+            <span class="item-label"
+              ><i class="fas fa-search-plus"></i>Pixel Ratio</span
+            >
             <span class="item-value" id="pixel-ratio">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-arrows-alt-h"></i>Orientation</span>
+            <span class="item-label"
+              ><i class="fas fa-arrows-alt-h"></i>Orientation</span
+            >
             <span class="item-value" id="orientation">-</span>
           </div>
         </div>
@@ -560,7 +653,9 @@
             <span class="item-value" id="tz">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-calendar"></i>Local Time</span>
+            <span class="item-label"
+              ><i class="fas fa-calendar"></i>Local Time</span
+            >
             <span class="item-value" id="local-time">-</span>
           </div>
           <div class="item">
@@ -572,7 +667,9 @@
             <span class="item-value" id="online">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-text-height"></i>Reduce Motion</span>
+            <span class="item-label"
+              ><i class="fas fa-text-height"></i>Reduce Motion</span
+            >
             <span class="item-value" id="reduce-motion">-</span>
           </div>
         </div>
@@ -580,23 +677,33 @@
         <!-- Network Card -->
         <div class="card" id="network">
           <div class="card-header">
-            <div class="card-icon network"><i class="fas fa-network-wired"></i></div>
+            <div class="card-icon network">
+              <i class="fas fa-network-wired"></i>
+            </div>
             <h3>Network</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-wifi"></i>Connection</span>
+            <span class="item-label"
+              ><i class="fas fa-wifi"></i>Connection</span
+            >
             <span class="item-value" id="net">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-download"></i>Downlink</span>
+            <span class="item-label"
+              ><i class="fas fa-download"></i>Downlink</span
+            >
             <span class="item-value" id="down">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-tachometer-alt"></i>RTT</span>
+            <span class="item-label"
+              ><i class="fas fa-tachometer-alt"></i>RTT</span
+            >
             <span class="item-value" id="rtt">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-battery-half"></i>Data Saver</span>
+            <span class="item-label"
+              ><i class="fas fa-battery-half"></i>Data Saver</span
+            >
             <span class="item-value" id="data-saver">-</span>
           </div>
         </div>
@@ -608,19 +715,27 @@
             <h3>Graphics</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-industry"></i>Vendor</span>
+            <span class="item-label"
+              ><i class="fas fa-industry"></i>Vendor</span
+            >
             <span class="item-value truncate" id="gpuv">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-microchip"></i>Renderer</span>
+            <span class="item-label"
+              ><i class="fas fa-microchip"></i>Renderer</span
+            >
             <span class="item-value truncate" id="gpur">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-check-circle"></i>WebGL</span>
+            <span class="item-label"
+              ><i class="fas fa-check-circle"></i>WebGL</span
+            >
             <span class="item-value" id="webgl">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-check-circle"></i>WebGL2</span>
+            <span class="item-label"
+              ><i class="fas fa-check-circle"></i>WebGL2</span
+            >
             <span class="item-value" id="webgl2">-</span>
           </div>
         </div>
@@ -628,11 +743,15 @@
         <!-- Battery Card -->
         <div class="card">
           <div class="card-header">
-            <div class="card-icon battery"><i class="fas fa-battery-three-quarters"></i></div>
+            <div class="card-icon battery">
+              <i class="fas fa-battery-three-quarters"></i>
+            </div>
             <h3>Battery</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-percentage"></i>Level</span>
+            <span class="item-label"
+              ><i class="fas fa-percentage"></i>Level</span
+            >
             <span class="item-value" id="battery-level">-</span>
           </div>
           <div class="item">
@@ -640,12 +759,18 @@
             <span class="item-value" id="battery-charging">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-hourglass-half"></i>Time to Full</span>
+            <span class="item-label"
+              ><i class="fas fa-hourglass-half"></i>Time to Full</span
+            >
             <span class="item-value" id="battery-time">-</span>
           </div>
-          <div id="battery-bar" style="display: none;">
+          <div id="battery-bar" style="display: none">
             <div class="progress-bar">
-              <div class="progress-fill" id="battery-progress" style="width: 0%"></div>
+              <div
+                class="progress-fill"
+                id="battery-progress"
+                style="width: 0%"
+              ></div>
             </div>
           </div>
         </div>
@@ -665,11 +790,15 @@
             <span class="item-value" id="storage-used">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-box"></i>LocalStorage</span>
+            <span class="item-label"
+              ><i class="fas fa-box"></i>LocalStorage</span
+            >
             <span class="item-value" id="local-storage">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-box-open"></i>SessionStorage</span>
+            <span class="item-label"
+              ><i class="fas fa-box-open"></i>SessionStorage</span
+            >
             <span class="item-value" id="session-storage">-</span>
           </div>
         </div>
@@ -677,23 +806,33 @@
         <!-- Features Card -->
         <div class="card">
           <div class="card-header">
-            <div class="card-icon location"><i class="fas fa-puzzle-piece"></i></div>
+            <div class="card-icon location">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
             <h3>Features</h3>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-bell"></i>Notifications</span>
+            <span class="item-label"
+              ><i class="fas fa-bell"></i>Notifications</span
+            >
             <span class="item-value" id="notifications">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-map-marker-alt"></i>Geolocation</span>
+            <span class="item-label"
+              ><i class="fas fa-map-marker-alt"></i>Geolocation</span
+            >
             <span class="item-value" id="geolocation">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-microphone"></i>Media Devices</span>
+            <span class="item-label"
+              ><i class="fas fa-microphone"></i>Media Devices</span
+            >
             <span class="item-value" id="media-devices">-</span>
           </div>
           <div class="item">
-            <span class="item-label"><i class="fas fa-share-alt"></i>Share API</span>
+            <span class="item-label"
+              ><i class="fas fa-share-alt"></i>Share API</span
+            >
             <span class="item-value" id="share-api">-</span>
           </div>
         </div>
@@ -701,7 +840,9 @@
         <!-- Fingerprint Card -->
         <div class="card big">
           <div class="card-header">
-            <div class="card-icon fingerprint"><i class="fas fa-fingerprint"></i></div>
+            <div class="card-icon fingerprint">
+              <i class="fas fa-fingerprint"></i>
+            </div>
             <h3>Fingerprint Data</h3>
           </div>
           <pre id="fingerprint"></pre>
@@ -710,7 +851,9 @@
         <!-- IP Card -->
         <div class="card big">
           <div class="card-header">
-            <div class="card-icon location"><i class="fas fa-globe-americas"></i></div>
+            <div class="card-icon location">
+              <i class="fas fa-globe-americas"></i>
+            </div>
             <h3>IP Information</h3>
           </div>
           <pre id="ip"></pre>
@@ -726,8 +869,10 @@
     <script>
       function getBrowserInfo() {
         const ua = navigator.userAgent;
-        let browser = "Unknown", version = "", engine = "Unknown";
-        
+        let browser = "Unknown",
+          version = "",
+          engine = "Unknown";
+
         if (ua.includes("Firefox/")) {
           browser = "Firefox";
           version = ua.match(/Firefox\/(\d+)/)?.[1] || "";
@@ -745,7 +890,7 @@
           version = ua.match(/Version\/(\d+)/)?.[1] || "";
           engine = "WebKit";
         }
-        
+
         return { browser, version, engine };
       }
 
@@ -757,71 +902,102 @@
       }
 
       function formatBytes(bytes) {
-        if (bytes === 0) return '0 B';
+        if (bytes === 0) return "0 B";
         const k = 1024;
-        const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+        const sizes = ["B", "KB", "MB", "GB", "TB"];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
       }
 
       function badge(value, type) {
-        const icon = type === 'success' ? 'check' : type === 'error' ? 'times' : 'info';
+        const icon =
+          type === "success" ? "check" : type === "error" ? "times" : "info";
         return `<span class="badge ${type}"><i class="fas fa-${icon}"></i> ${value}</span>`;
       }
 
       async function collect() {
         // Browser info
         const browserInfo = getBrowserInfo();
-        document.getElementById("browser-name").textContent = browserInfo.browser;
-        document.getElementById("browser-version").textContent = browserInfo.version;
-        document.getElementById("browser-engine").textContent = browserInfo.engine;
+        document.getElementById("browser-name").textContent =
+          browserInfo.browser;
+        document.getElementById("browser-version").textContent =
+          browserInfo.version;
+        document.getElementById("browser-engine").textContent =
+          browserInfo.engine;
         document.getElementById("platform").textContent = navigator.platform;
         document.getElementById("lang").textContent = navigator.language;
-        document.getElementById("cookies").innerHTML = navigator.cookieEnabled 
-          ? badge("Enabled", "success") : badge("Disabled", "error");
-        document.getElementById("dnt").innerHTML = navigator.doNotTrack === "1" 
-          ? badge("Enabled", "success") : badge("Disabled", "warning");
+        document.getElementById("cookies").innerHTML = navigator.cookieEnabled
+          ? badge("Enabled", "success")
+          : badge("Disabled", "error");
+        document.getElementById("dnt").innerHTML =
+          navigator.doNotTrack === "1"
+            ? badge("Enabled", "success")
+            : badge("Disabled", "warning");
 
         // Device
         const cores = navigator.hardwareConcurrency || "N/A";
-        const memory = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "N/A";
+        const memory = navigator.deviceMemory
+          ? navigator.deviceMemory + " GB"
+          : "N/A";
         document.getElementById("cores").textContent = cores + " threads";
         document.getElementById("memory").textContent = memory;
-        document.getElementById("touch").innerHTML = "ontouchstart" in window 
-          ? badge("Supported", "success") : badge("Not Available", "info");
+        document.getElementById("touch").innerHTML =
+          "ontouchstart" in window
+            ? badge("Supported", "success")
+            : badge("Not Available", "info");
         document.getElementById("device-type").textContent = getDeviceType();
 
         // Stats bar
         document.getElementById("stat-cores").textContent = cores;
         document.getElementById("stat-memory").textContent = memory;
-        document.getElementById("stat-screen").textContent = screen.width + "×" + screen.height;
+        document.getElementById("stat-screen").textContent =
+          screen.width + "×" + screen.height;
 
         // Screen
-        document.getElementById("res").textContent = screen.width + " × " + screen.height;
-        document.getElementById("viewport").textContent = window.innerWidth + " × " + window.innerHeight;
-        document.getElementById("depth").textContent = screen.colorDepth + " bit";
-        document.getElementById("pixel-ratio").textContent = window.devicePixelRatio + "x";
-        document.getElementById("orientation").textContent = screen.orientation?.type?.split('-')[0] || "N/A";
+        document.getElementById("res").textContent =
+          screen.width + " × " + screen.height;
+        document.getElementById("viewport").textContent =
+          window.innerWidth + " × " + window.innerHeight;
+        document.getElementById("depth").textContent =
+          screen.colorDepth + " bit";
+        document.getElementById("pixel-ratio").textContent =
+          window.devicePixelRatio + "x";
+        document.getElementById("orientation").textContent =
+          screen.orientation?.type?.split("-")[0] || "N/A";
 
         // System
-        document.getElementById("tz").textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        document.getElementById("local-time").textContent = new Date().toLocaleTimeString();
-        document.getElementById("dark").innerHTML = matchMedia("(prefers-color-scheme: dark)").matches 
-          ? badge("Active", "info") : badge("Light", "info");
-        document.getElementById("online").innerHTML = navigator.onLine 
-          ? badge("Connected", "success") : badge("Offline", "error");
-        document.getElementById("reduce-motion").innerHTML = matchMedia("(prefers-reduced-motion: reduce)").matches 
-          ? badge("Enabled", "info") : badge("Disabled", "info");
+        document.getElementById("tz").textContent =
+          Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("local-time").textContent =
+          new Date().toLocaleTimeString();
+        document.getElementById("dark").innerHTML = matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches
+          ? badge("Active", "info")
+          : badge("Light", "info");
+        document.getElementById("online").innerHTML = navigator.onLine
+          ? badge("Connected", "success")
+          : badge("Offline", "error");
+        document.getElementById("reduce-motion").innerHTML = matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches
+          ? badge("Enabled", "info")
+          : badge("Disabled", "info");
 
         // Network
         if (navigator.connection) {
           const conn = navigator.connection;
-          document.getElementById("net").innerHTML = badge(conn.effectiveType?.toUpperCase(), "info");
+          document.getElementById("net").innerHTML = badge(
+            conn.effectiveType?.toUpperCase(),
+            "info",
+          );
           document.getElementById("down").textContent = conn.downlink + " Mbps";
           document.getElementById("rtt").textContent = conn.rtt + " ms";
-          document.getElementById("data-saver").innerHTML = conn.saveData 
-            ? badge("On", "warning") : badge("Off", "success");
-          document.getElementById("stat-connection").textContent = conn.effectiveType?.toUpperCase();
+          document.getElementById("data-saver").innerHTML = conn.saveData
+            ? badge("On", "warning")
+            : badge("Off", "success");
+          document.getElementById("stat-connection").textContent =
+            conn.effectiveType?.toUpperCase();
         } else {
           document.getElementById("stat-connection").textContent = "N/A";
         }
@@ -831,14 +1007,22 @@
         const gl = canvas.getContext("webgl");
         const gl2 = canvas.getContext("webgl2");
 
-        document.getElementById("webgl").innerHTML = gl ? badge("Supported", "success") : badge("No", "error");
-        document.getElementById("webgl2").innerHTML = gl2 ? badge("Supported", "success") : badge("No", "error");
+        document.getElementById("webgl").innerHTML = gl
+          ? badge("Supported", "success")
+          : badge("No", "error");
+        document.getElementById("webgl2").innerHTML = gl2
+          ? badge("Supported", "success")
+          : badge("No", "error");
 
         if (gl) {
           const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
           if (debugInfo) {
-            document.getElementById("gpuv").textContent = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-            document.getElementById("gpur").textContent = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            document.getElementById("gpuv").textContent = gl.getParameter(
+              debugInfo.UNMASKED_VENDOR_WEBGL,
+            );
+            document.getElementById("gpur").textContent = gl.getParameter(
+              debugInfo.UNMASKED_RENDERER_WEBGL,
+            );
           }
         }
 
@@ -848,19 +1032,23 @@
             const battery = await navigator.getBattery();
             const level = Math.round(battery.level * 100);
             document.getElementById("battery-level").textContent = level + "%";
-            document.getElementById("battery-charging").innerHTML = battery.charging 
-              ? badge("Yes", "success") : badge("No", "info");
-            
+            document.getElementById("battery-charging").innerHTML =
+              battery.charging ? badge("Yes", "success") : badge("No", "info");
+
             let timeText = "N/A";
             if (battery.charging && battery.chargingTime !== Infinity) {
               timeText = Math.round(battery.chargingTime / 60) + " min";
-            } else if (!battery.charging && battery.dischargingTime !== Infinity) {
+            } else if (
+              !battery.charging &&
+              battery.dischargingTime !== Infinity
+            ) {
               timeText = Math.round(battery.dischargingTime / 60) + " min left";
             }
             document.getElementById("battery-time").textContent = timeText;
-            
+
             document.getElementById("battery-bar").style.display = "block";
-            document.getElementById("battery-progress").style.width = level + "%";
+            document.getElementById("battery-progress").style.width =
+              level + "%";
           } catch (e) {
             document.getElementById("battery-level").textContent = "N/A";
           }
@@ -869,23 +1057,37 @@
         // Storage
         if (navigator.storage && navigator.storage.estimate) {
           const estimate = await navigator.storage.estimate();
-          document.getElementById("storage-quota").textContent = formatBytes(estimate.quota);
-          document.getElementById("storage-used").textContent = formatBytes(estimate.usage);
+          document.getElementById("storage-quota").textContent = formatBytes(
+            estimate.quota,
+          );
+          document.getElementById("storage-used").textContent = formatBytes(
+            estimate.usage,
+          );
         }
-        document.getElementById("local-storage").innerHTML = window.localStorage 
-          ? badge("Available", "success") : badge("No", "error");
-        document.getElementById("session-storage").innerHTML = window.sessionStorage 
-          ? badge("Available", "success") : badge("No", "error");
+        document.getElementById("local-storage").innerHTML = window.localStorage
+          ? badge("Available", "success")
+          : badge("No", "error");
+        document.getElementById("session-storage").innerHTML =
+          window.sessionStorage
+            ? badge("Available", "success")
+            : badge("No", "error");
 
         // Features
-        document.getElementById("notifications").innerHTML = "Notification" in window 
-          ? badge(Notification.permission, "info") : badge("No", "error");
-        document.getElementById("geolocation").innerHTML = "geolocation" in navigator 
-          ? badge("Available", "success") : badge("No", "error");
-        document.getElementById("media-devices").innerHTML = navigator.mediaDevices 
-          ? badge("Available", "success") : badge("No", "error");
-        document.getElementById("share-api").innerHTML = navigator.share 
-          ? badge("Supported", "success") : badge("No Support", "warning");
+        document.getElementById("notifications").innerHTML =
+          "Notification" in window
+            ? badge(Notification.permission, "info")
+            : badge("No", "error");
+        document.getElementById("geolocation").innerHTML =
+          "geolocation" in navigator
+            ? badge("Available", "success")
+            : badge("No", "error");
+        document.getElementById("media-devices").innerHTML =
+          navigator.mediaDevices
+            ? badge("Available", "success")
+            : badge("No", "error");
+        document.getElementById("share-api").innerHTML = navigator.share
+          ? badge("Supported", "success")
+          : badge("No Support", "warning");
 
         // Fingerprint
         const fingerprint = {
@@ -901,10 +1103,14 @@
           languages: navigator.languages,
           touchPoints: navigator.maxTouchPoints,
           cookiesEnabled: navigator.cookieEnabled,
-          doNotTrack: navigator.doNotTrack
+          doNotTrack: navigator.doNotTrack,
         };
 
-        document.getElementById("fingerprint").textContent = JSON.stringify(fingerprint, null, 2);
+        document.getElementById("fingerprint").textContent = JSON.stringify(
+          fingerprint,
+          null,
+          2,
+        );
 
         // IP Info
         try {
@@ -918,19 +1124,25 @@
             postal: data.postal,
             timezone: data.timezone,
             isp: data.org,
-            asn: data.asn
+            asn: data.asn,
           };
-          document.getElementById("ip").textContent = JSON.stringify(formatted, null, 2);
+          document.getElementById("ip").textContent = JSON.stringify(
+            formatted,
+            null,
+            2,
+          );
         } catch (e) {
-          document.getElementById("ip").textContent = "IP lookup unavailable or blocked";
+          document.getElementById("ip").textContent =
+            "IP lookup unavailable or blocked";
         }
       }
 
       collect();
-      
+
       // Update time every second
       setInterval(() => {
-        document.getElementById("local-time").textContent = new Date().toLocaleTimeString();
+        document.getElementById("local-time").textContent =
+          new Date().toLocaleTimeString();
       }, 1000);
     </script>
   </body>
