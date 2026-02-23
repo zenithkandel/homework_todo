@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Browser Data Inspector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --soft: #1f2937;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #3b82f6;
+        --radius: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Inter, system-ui;
+      }
+
+      body {
+        background: linear-gradient(180deg, #0b1220, #0f172a);
+        color: var(--text);
+        padding: 40px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .header {
+        margin-bottom: 30px;
+      }
+
+      .title {
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .card h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .item {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .item span:first-child {
+        color: var(--muted);
+      }
+
+      .big {
+        grid-column: 1/-1;
+      }
+
+      pre {
+        background: var(--soft);
+        padding: 14px;
+        border-radius: 10px;
+        overflow: auto;
+        font-size: 12px;
+      }
+
+      button {
+        margin-top: 25px;
+        background: var(--accent);
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+
+      .footer {
+        margin-top: 30px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="title">Browser Data Inspector</div>
+        <div class="subtitle">
+          Information accessible from your browser without permissions
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Browser</h3>
+          <div class="item"><span>User Agent</span><span id="ua"></span></div>
+          <div class="item">
+            <span>Platform</span><span id="platform"></span>
+          </div>
+          <div class="item"><span>Language</span><span id="lang"></span></div>
+          <div class="item"><span>Cookies</span><span id="cookies"></span></div>
+          <div class="item">
+            <span>Do Not Track</span><span id="dnt"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Device</h3>
+          <div class="item">
+            <span>CPU Threads</span><span id="cores"></span>
+          </div>
+          <div class="item">
+            <span>Device Memory</span><span id="memory"></span>
+          </div>
+          <div class="item">
+            <span>Touch Support</span><span id="touch"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Screen</h3>
+          <div class="item"><span>Resolution</span><span id="res"></span></div>
+          <div class="item">
+            <span>Viewport</span><span id="viewport"></span>
+          </div>
+          <div class="item">
+            <span>Color Depth</span><span id="depth"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>System</h3>
+          <div class="item"><span>Timezone</span><span id="tz"></span></div>
+          <div class="item"><span>Dark Mode</span><span id="dark"></span></div>
+          <div class="item"><span>Online</span><span id="online"></span></div>
+        </div>
+
+        <div class="card">
+          <h3>Network</h3>
+          <div class="item"><span>Connection</span><span id="net"></span></div>
+          <div class="item"><span>Downlink</span><span id="down"></span></div>
+          <div class="item"><span>RTT</span><span id="rtt"></span></div>
+        </div>
+
+        <div class="card">
+          <h3>GPU</h3>
+          <div class="item"><span>Vendor</span><span id="gpuv"></span></div>
+          <div class="item"><span>Renderer</span><span id="gpur"></span></div>
+        </div>
+
+        <div class="card big">
+          <h3>Fingerprint Data</h3>
+          <pre id="fingerprint"></pre>
+        </div>
+
+        <div class="card big">
+          <h3>IP Info</h3>
+          <pre id="ip"></pre>
+        </div>
+      </div>
+
+      <div style="text-align: center">
+        <button onclick="collect()">Refresh Data</button>
+      </div>
+
+      <div class="footer">Local demo — no data is sent anywhere</div>
+    </div>
+
+    <script>
+      async function collect() {
+        document.getElementById("ua").textContent = navigator.userAgent;
+        document.getElementById("platform").textContent = navigator.platform;
+        document.getElementById("lang").textContent = navigator.language;
+        document.getElementById("cookies").textContent =
+          navigator.cookieEnabled;
+        document.getElementById("dnt").textContent = navigator.doNotTrack;
+
+        document.getElementById("cores").textContent =
+          navigator.hardwareConcurrency || "N/A";
+        document.getElementById("memory").textContent = navigator.deviceMemory
+          ? navigator.deviceMemory + " GB"
+          : "N/A";
+        document.getElementById("touch").textContent = "ontouchstart" in window;
+
+        document.getElementById("res").textContent =
+          screen.width + " x " + screen.height;
+        document.getElementById("viewport").textContent =
+          window.innerWidth + " x " + window.innerHeight;
+        document.getElementById("depth").textContent = screen.colorDepth;
+
+        document.getElementById("tz").textContent =
+          Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("dark").textContent = matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        document.getElementById("online").textContent = navigator.onLine;
+
+        if (navigator.connection) {
+          document.getElementById("net").textContent =
+            navigator.connection.effectiveType;
+          document.getElementById("down").textContent =
+            navigator.connection.downlink + " Mbps";
+          document.getElementById("rtt").textContent =
+            navigator.connection.rtt + " ms";
+        }
+
+        const canvas = document.createElement("canvas");
+        const gl = canvas.getContext("webgl");
+
+        if (gl) {
+          const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+
+          if (debugInfo) {
+            document.getElementById("gpuv").textContent = gl.getParameter(
+              debugInfo.UNMASKED_VENDOR_WEBGL,
+            );
+
+            document.getElementById("gpur").textContent = gl.getParameter(
+              debugInfo.UNMASKED_RENDERER_WEBGL,
+            );
+          }
+        }
+
+        const fingerprint = {
+          userAgent: navigator.userAgent,
+          platform: navigator.platform,
+          cores: navigator.hardwareConcurrency,
+          memory: navigator.deviceMemory,
+          screen: screen.width + "x" + screen.height,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          language: navigator.language,
+        };
+
+        document.getElementById("fingerprint").textContent = JSON.stringify(
+          fingerprint,
+          null,
+          2,
+        );
+
+        try {
+          const res = await fetch("https://ipapi.co/json/");
+          const data = await res.json();
+          document.getElementById("ip").textContent = JSON.stringify(
+            data,
+            null,
+            2,
+          );
+        } catch (e) {
+          document.getElementById("ip").textContent = "IP lookup blocked";
+        }
+      }
+
+      collect();
+    </script>
+  </body>
+</html>
